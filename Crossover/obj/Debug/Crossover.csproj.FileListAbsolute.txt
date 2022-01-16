@@ -1,0 +1,6 @@
+D:\henry\chinisoft\chatroom\Crossover\bin\Debug\Crossover.dll
+D:\henry\chinisoft\chatroom\Crossover\bin\Debug\Crossover.pdb
+D:\henry\chinisoft\chatroom\Crossover\obj\Debug\Crossover.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\Crossover\obj\Debug\Crossover.csproj.CoreCompileInputs.cache
+D:\henry\chinisoft\chatroom\Crossover\obj\Debug\Crossover.dll
+D:\henry\chinisoft\chatroom\Crossover\obj\Debug\Crossover.pdb

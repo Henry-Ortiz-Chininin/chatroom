@@ -1,0 +1,6 @@
+D:\henry\chinisoft\chatroom\DomainEntity\bin\Debug\DomainEntity.dll
+D:\henry\chinisoft\chatroom\DomainEntity\bin\Debug\DomainEntity.pdb
+D:\henry\chinisoft\chatroom\DomainEntity\obj\Debug\DomainObject.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\DomainEntity\obj\Debug\DomainObject.csproj.CoreCompileInputs.cache
+D:\henry\chinisoft\chatroom\DomainEntity\obj\Debug\DomainEntity.dll
+D:\henry\chinisoft\chatroom\DomainEntity\obj\Debug\DomainEntity.pdb

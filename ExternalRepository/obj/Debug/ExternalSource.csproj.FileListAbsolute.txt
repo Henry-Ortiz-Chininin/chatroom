@@ -1,0 +1,6 @@
+D:\henry\chinisoft\chatroom\ExternalRepository\bin\Debug\ExternalRepository.dll
+D:\henry\chinisoft\chatroom\ExternalRepository\bin\Debug\ExternalRepository.pdb
+D:\henry\chinisoft\chatroom\ExternalRepository\obj\Debug\ExternalSource.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\ExternalRepository\obj\Debug\ExternalSource.csproj.CoreCompileInputs.cache
+D:\henry\chinisoft\chatroom\ExternalRepository\obj\Debug\ExternalRepository.dll
+D:\henry\chinisoft\chatroom\ExternalRepository\obj\Debug\ExternalRepository.pdb

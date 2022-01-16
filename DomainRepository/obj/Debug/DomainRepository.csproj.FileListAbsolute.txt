@@ -1,0 +1,6 @@
+D:\henry\chinisoft\chatroom\DomainRepository\bin\Debug\DomainRepository.dll
+D:\henry\chinisoft\chatroom\DomainRepository\bin\Debug\DomainRepository.pdb
+D:\henry\chinisoft\chatroom\DomainRepository\obj\Debug\DomainRepository.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\DomainRepository\obj\Debug\DomainRepository.csproj.CoreCompileInputs.cache
+D:\henry\chinisoft\chatroom\DomainRepository\obj\Debug\DomainRepository.dll
+D:\henry\chinisoft\chatroom\DomainRepository\obj\Debug\DomainRepository.pdb
