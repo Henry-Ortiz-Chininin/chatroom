@@ -7,8 +7,8 @@
     <ProjectGuid>{F0FAF5E7-7EE3-46C5-B0F9-21677B18F90F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DomainEntity</RootNamespace>
-    <AssemblyName>DomainEntity</AssemblyName>
+    <RootNamespace>DomainSpeakUs</RootNamespace>
+    <AssemblyName>DomainSpeakUs</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,10 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Message.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="Speaker.cs" />
+    <Compile Include="Aggregates\RoomMessage.cs" />
+    <Compile Include="Aggregates\Room.cs" />
+    <Compile Include="Aggregates\Speaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Crossover\Crossover.csproj">
+      <Project>{f0880c69-2990-40ab-907a-299d8e3953b1}</Project>
+      <Name>Crossover</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataEntity\DataEntity.csproj">
+      <Project>{1a865eb8-42c4-4d38-ba63-ff64641cecff}</Project>
+      <Name>DataEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataRepository\DataRepository.csproj">
+      <Project>{31dabf18-e9e3-4284-a65c-cd9ab6d40b30}</Project>
+      <Name>DataRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalRepository\ExternalSource.csproj">
+      <Project>{952fc412-a399-4a6f-826d-b85807719215}</Project>
+      <Name>ExternalSource</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
