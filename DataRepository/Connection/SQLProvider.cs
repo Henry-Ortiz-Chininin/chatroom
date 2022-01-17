@@ -101,14 +101,14 @@ namespace DataRepository.Connection
             return fieldValue;
         }
 
-        public static string GetDateTime(SqlDataReader reader, string fieldName)
+        public static DateTime GetDateTime(SqlDataReader reader, string fieldName)
         {
-            string fieldValue = "";
+            DateTime fieldValue = DateTime.Now;
             for (int id = 0; id < reader.FieldCount; id++)
             {
                 if (reader.GetName(id).ToString() == fieldName && !reader.IsDBNull(id))
                 {
-                    fieldValue = reader.GetDateTime(id).ToString();
+                    fieldValue = reader.GetDateTime(id);
                 }
             }
             return fieldValue;

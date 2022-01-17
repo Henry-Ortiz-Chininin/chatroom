@@ -12,6 +12,7 @@ namespace DataRepository.Interfaces
         bool Add(RoomMate mate);
         bool Update(RoomMate mate);
         bool Remove(string roomid, string mateid);
-        IEnumerable<RoomMate> GetRoomMates(string roomid);
+        IEnumerable<RoomMate> GetRoomsByMate(string mateId);
+        IEnumerable<RoomMate> GetMatesByRoom(string roomId);
     }
 }

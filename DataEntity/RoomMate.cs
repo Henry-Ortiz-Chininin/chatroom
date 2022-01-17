@@ -9,8 +9,8 @@ namespace DataEntity
 {
     public class RoomMate:Base
     {
-        public string RoomId { get; private set; }
-        public string RommMateId { get; set; }
+        public string RoomId { get; set; }
+        public string RoomMateId { get; set; }
         public string Status { get; set; }
     }
 }

@@ -9,8 +9,8 @@ namespace DataRepository.Interfaces
 {
     public interface iSpeakerRepository
     {
-        bool Add(Speaker speaker);
-        bool Update(Speaker speaker);
+        string Add(Speaker speaker);
+        string Update(Speaker speaker);
         bool Remove(string speakerId);
         Speaker GetSpeaker(string speakerId);
         List<Speaker> GetSpeakers();

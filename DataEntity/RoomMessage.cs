@@ -12,7 +12,7 @@ namespace DataEntity
         public string RoomId { get; set; }
         public string SpeakerId { get; set; }
         public string Message { get; set; }
-        public DateTime CreationTime { get; private set; }
+        public DateTime CreationTime { get; set; }
         public string ReferenceId { get; set; }
     }
 }

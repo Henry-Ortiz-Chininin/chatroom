@@ -9,8 +9,8 @@ namespace DataRepository.Interfaces
 {
     public interface iRoomMessageRepository
     {
-        bool Add(RoomMessage message);
-        bool Update(RoomMessage message);
+        string Add(RoomMessage message);
+        string Update(RoomMessage message);
         bool Remove(string roomid);
         RoomMessage GetMessage(string roomid, string messageid);
         IEnumerable<RoomMessage> GetMessages(string roomid);

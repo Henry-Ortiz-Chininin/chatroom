@@ -13,16 +13,16 @@ namespace DataRepository.Repositories
 {
     public class SpeakerRepository : iSpeakerRepository
     {
-        public bool Add(Speaker speaker)
+        public string Add(Speaker speaker)
         {
             List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("UseId", speaker.UserId));
+            parameters.Add(new SqlParameter("UserId", speaker.UserId));
             parameters.Add(new SqlParameter("Name", speaker.Name));
             parameters.Add(new SqlParameter("Status", speaker.Status));
 
             SQLProvider.ExecuteProc("usp_Speaker_Add", parameters);
 
-            return true;
+            return speaker.UserId;
         }
 
         public Speaker GetSpeaker(string speakerId)
@@ -38,8 +38,8 @@ namespace DataRepository.Repositories
                 {
                     speaker = new Speaker();
 
-                    speaker.UserId = SQLProvider.GetGUID(reader, "Id");
-                    speaker.Name = SQLProvider.GetText(reader, "UserName");
+                    speaker.UserId = SQLProvider.GetGUID(reader, "UserId");
+                    speaker.Name = SQLProvider.GetText(reader, "Name");
                     speaker.Status = SQLProvider.GetText(reader, "Status");                    
                 }
             }
@@ -87,7 +87,7 @@ namespace DataRepository.Repositories
             return speakerList;
         }
 
-        public bool Update(Speaker speaker)
+        public string Update(Speaker speaker)
         {
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("UserId", speaker.UserId));
@@ -96,7 +96,7 @@ namespace DataRepository.Repositories
 
             SQLProvider.ExecuteProc("usp_Speaker_Update", parameters);
 
-            return true;
+            return speaker.UserId;
         }
     }
 }
