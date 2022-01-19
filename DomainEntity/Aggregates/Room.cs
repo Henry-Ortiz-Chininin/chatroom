@@ -46,7 +46,17 @@ namespace DomainEntitySpeakUs.Aggregates
             return result;
         }
 
-        public List<Message> Messages { get; set; }
+        public List<RoomMessage> Messages ()
+        {
+            List<RoomMessage> result = new List<RoomMessage>();
+            iRoomMessageRepository iRoomMessage = new RoomMessageRepository();
+            foreach (DataEntity.RoomMessage message in iRoomMessage.GetMessages(this.RoomId))
+            {
+                result.Add(new RoomMessage(message.RoomId,message.Id));
+            }
+
+            return result;
+        }
 
     }
 }

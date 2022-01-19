@@ -78,10 +78,6 @@
       <Project>{31dabf18-e9e3-4284-a65c-cd9ab6d40b30}</Project>
       <Name>DataRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SpeakUs\SpeakUs.csproj">
-      <Project>{A7C16D04-AE54-485A-8689-D7F8A60D91B9}</Project>
-      <Name>SpeakUs</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

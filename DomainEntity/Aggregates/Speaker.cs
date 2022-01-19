@@ -50,7 +50,11 @@ namespace DomainEntitySpeakUs.Aggregates
         public List<Room> Rooms()
         {
             List<Room> result = new List<Room>();
-
+            iRoomMateRepository iRoom = new RoomMateRepository();
+            foreach (DataEntity.RoomMate room in iRoom.GetRoomsByMate(this.SpeakerId))
+            {
+                result.Add(new Room(room.RoomId));
+            }
 
             return result;
         }

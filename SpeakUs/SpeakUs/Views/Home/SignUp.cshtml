@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+<form method="post">
+    <div class="container  p-5 my-5 border">
+        <header>Sign up form</header>
+        <content>
+            <div class="">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="UserName">
+            </div>
+            <div class="">
+                <label for="pwd" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="txtPassword" placeholder="Enter password" name="Password">
+            </div>
+            <div class="">
+                <label for="pwd" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="txtName" placeholder="Enter Speaker Name" name="SpeakerName">
+            </div>
+        </content>
+        <footer>
+            <input type="submit" class="btn btn-success" value="Register" />
+            <span>@Model.Message</span>
+        </footer>
+</form>
