@@ -1,6 +1,7 @@
 ﻿
 let form = document.forms[0];
 let NewCurrentRoomId = $("#NewCurrentRoomId");
+let CurrentRoomId = $("#CurrentRoomId");
 let RemoveRoomId = $("#RemoveRoomId");
 let RemoveMateId = $("#RemoveMateId");
 let CurrentAction = $("#CurrentAction");
@@ -17,6 +18,7 @@ window.addEventListener("resize", function () {
 
 function SelectRoom(RoomId) {
     NewCurrentRoomId.val(RoomId);
+    CurrentRoomId.val(RoomId);
     CurrentAction.val("Open Room");
     form.submit();
 }

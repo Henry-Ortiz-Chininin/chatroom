@@ -24,24 +24,27 @@ namespace SpeakUs.Controllers
 
         public ActionResult Logout(string SessionId)
         {
-            return View();
+            return RedirectToAction("Index","Home");
         }
         [HttpPost]
         public ActionResult Index(DTOSession session)
         {
-            if(session.CurrentAction=="Add Room")
+            if(session.CurrentAction=="Add Room" && !string.IsNullOrEmpty(session.SessionId) &&
+                !string.IsNullOrEmpty(session.NewRoomName))
                 DomainSpeakUs.Repository.Room.Add(session.SessionId, session.NewRoomName);
 
-            if (session.CurrentAction == "Add Mate")
+            if (session.CurrentAction == "Add Mate" && !string.IsNullOrEmpty(session.CurrentRoomId) &&
+                !string.IsNullOrEmpty(session.NewMateUser))
                 DomainSpeakUs.Repository.Speaker.AddSpeakerToRoom(session.CurrentRoomId, session.NewMateUser);
 
-            if (session.CurrentAction == "Open Room")
-            {
-                if( !string.IsNullOrEmpty(session.NewCurrentRoomId))
-                    DomainSpeakUs.Repository.Room.SetStatusRoom(session.NewCurrentRoomId, session.SpeakerId);
+            if (session.CurrentAction == "Open Room" && !string.IsNullOrEmpty(session.NewCurrentRoomId))
+            {               
+                DomainSpeakUs.Repository.Room.SetStatusRoom(session.NewCurrentRoomId, session.SpeakerId);
+                session.CurrentRoomId = session.NewCurrentRoomId;
             }
 
-            if (session.CurrentAction == "Add Message")
+            if (session.CurrentAction == "Add Message" && !string.IsNullOrEmpty(session.CurrentRoomId) &&
+                !string.IsNullOrEmpty(session.SpeakerId) && !string.IsNullOrEmpty(session.NewMessage))
             {
                 if(session.NewMessage.StartsWith("/stock="))
                 {
@@ -55,12 +58,15 @@ namespace SpeakUs.Controllers
 
             }
 
-            if (session.CurrentAction == "Remove Mate")
+            if (session.CurrentAction == "Remove Mate" && !string.IsNullOrEmpty(session.CurrentRoomId) &&
+                !string.IsNullOrEmpty(session.RemoveMateId))
                 DomainSpeakUs.Repository.Speaker.RemoveSpeaker(session.CurrentRoomId, session.RemoveMateId);
 
-            session = Build(session.SessionId); 
+
+            return RedirectToAction("Index", "Chat", new { SessionId = session.SessionId });
+            //session = Build(session.SessionId); 
             
-            return View(session);
+            //return View(session);
         }
 
         public void ProcessCommand(DTOSession session)

@@ -80,6 +80,14 @@ namespace SpeakUs.Controllers
         [HttpPost] 
         public ActionResult Login(DTOLogin login)
         {
+            if(string.IsNullOrEmpty(login.UserName) || string.IsNullOrEmpty(login.Password))
+            {
+                login.Message = "All inputs must filled";
+                return View(login);
+            }
+
+                    
+
             DataRepository.Interfaces.iUserRepository iUserRepository = new DataRepository.Repositories.UserRepository();
             DataEntity.User user = iUserRepository.Authenticate(login.UserName, login.Password);
             if(user!=null &&  !String.IsNullOrEmpty(user.Id))

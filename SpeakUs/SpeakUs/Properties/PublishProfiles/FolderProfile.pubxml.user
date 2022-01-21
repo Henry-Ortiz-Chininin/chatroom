@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\henry\chinisoft\chatroom\SpeakUs\SpeakUs\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2022-01-21T01:51:10.1828323Z;True|2022-01-20T21:49:38.7113394-04:00;True|2022-01-20T21:43:16.2009372-04:00;True|2022-01-20T21:14:18.6275962-04:00;True|2022-01-20T20:48:52.5844895-04:00;True|2022-01-20T20:47:27.0476411-04:00;</History>
+    <History>True|2022-01-21T02:48:10.3730020Z;True|2022-01-20T22:46:55.9588025-04:00;True|2022-01-20T21:51:10.1828323-04:00;True|2022-01-20T21:49:38.7113394-04:00;True|2022-01-20T21:43:16.2009372-04:00;True|2022-01-20T21:14:18.6275962-04:00;True|2022-01-20T20:48:52.5844895-04:00;True|2022-01-20T20:47:27.0476411-04:00;</History>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
   </PropertyGroup>
