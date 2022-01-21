@@ -1,0 +1,109 @@
+﻿@model SpeakUs.Models.DTOSession
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutChat.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "Chat"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Hidden("NewCurrentRoomId")
+    @Html.Hidden("RemoveRoomId")
+    @Html.Hidden("RemoveMateId")
+    @Html.Hidden("CurrentRoomId", Model.CurrentRoomId)
+    @Html.Hidden("SessionId", Model.SessionId)
+    @Html.Hidden("SpeakerId", Model.SpeakerId)
+    @Html.Hidden("CurrentAction")
+
+
+
+<div class="row" id="ChatPanel">
+    <!---------------ROOMS------------------>
+    <div class="panel panel-primary col-lg-3 col-md-3 col-sm-3" id="pnlLeft">
+        <div class="panel-heading bg-primary">
+            <div class="panel-title">ROOMS</div>
+        </div>
+        <div class="panel-body bg-info">
+
+            @foreach (var Item in Model.Rooms)
+            {
+
+                if (Item.RoomId == Model.CurrentRoomId)
+                {
+                    <div class="row form-horizontal bg-primary">
+                        <label class="col-lg-9" onclick="SelectRoom('@Item.RoomId')">@Item.RoomName</label>
+                        <button type="button" class="close" aria-label="Close" onclick="RemoveRoom('@Item.RoomId')"><span aria-hidden="true">&times;</span></button>
+
+                    </div>
+                }
+                else
+                {
+                    <div class="row form-horizontal bg-info">
+                        <label class="col-lg-9" onclick="SelectRoom('@Item.RoomId')">@Item.RoomName</label>
+                        <button type="button" class="close" aria-label="Close" onclick="RemoveRoom('@Item.RoomId')"><span aria-hidden="true">&times;</span></button>
+
+                    </div>
+                }
+            }
+        </div>
+        <div class="panel-footer form-horizontal">
+            <div class="form-group col-lg-9">
+                <input class="form-control" type="text" name="NewRoomName" placeholder="Room Name" />
+            </div>
+            <input type="button" class="btn btn-primary" value="Add" id="btnAction" onclick="AddRoom()" />
+        </div>
+    </div>
+
+    <!---------------MESSAGES------------------>
+
+    <div class="panel panel-default  col-lg-6 col-md-6 col-sm-6">
+        <div class="panel-heading bg-primary">
+            <div class="panel-title">@Model.SpeakerName Speaking</div>
+        </div>
+        <div class="panel-body">
+            @foreach (var Item in Model.Messages)
+            {
+                <p><span>@Item.CreatorName Says: </span>@Item.Content </p>
+            }
+        </div>
+        <div class="panel-footer form-horizontal">
+            <div class="form-group  col-lg-10 col-md-10 col-sm-10">
+                <input class="form-control col-lg-10 col-md-10 col-sm-10" type="text" name="NewMessage" />
+            </div>
+            <input type="button" class="btn btn-primary" value="Send" id="btnAction" onclick="AddMessage()" />
+        </div>
+    </div>
+
+    <!---------------MATES------------------>
+
+    <div class="panel panel-primary col-lg-3 col-md-3 col-sm-3" id="pnlRight">
+        <div class="panel-heading bg-primary">
+            <div class="panel-title">MATES</div>
+        </div>
+        <div class="panel-body bg-info">
+            @foreach (var Item in Model.Mates.Where(m => m.SpeakerStatus == Crossover.Status.RoomMateStatus.CONNECTED))
+            {
+                <div class="row form-horizontal text-primary">
+                    <label class="col-lg-9">@Item.SpeakerName</label>
+                    <button type="button" class="close" aria-label="Close" onclick="RemoveMate(@Item.SpeakerId)"><span aria-hidden="true">&times;</span></button>
+                </div>
+            }
+
+        </div>
+        <div class="panel-footer form-horizontal">
+            <div class="form-group col-lg-9">
+                <div class="input-group">
+                    <span class="input-group-addon">@@</span>
+                    <input class="form-control" type="text" name="NewMateUser" placeholder="Mate User Name" />
+                </div>
+            </div>
+            <input type="button" class="btn btn-primary" value="Add" id="btnAction" onclick="AddMate()" />
+
+        </div>
+    </div>
+
+</div>
+
+    }

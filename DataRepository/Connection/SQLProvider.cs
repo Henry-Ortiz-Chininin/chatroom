@@ -36,6 +36,26 @@ namespace DataRepository.Connection
             }
         }
         
+        public static SqlConnection GetConnection()
+        {
+            return new SqlConnection(ConnectionString);
+
+        }
+        public static SqlDataReader ReaderFromProc(SqlConnection connection, string strStoreProc, IEnumerable<SqlParameter> sqlParams)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = strStoreProc;
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            foreach (SqlParameter param in sqlParams)
+            {
+                command.Parameters.Add(param);
+            }
+
+            connection.Open();
+            return command.ExecuteReader(System.Data.CommandBehavior.SingleResult);
+        }
 
         public static SqlDataReader ReaderFromProc(string strStoreProc, IEnumerable<SqlParameter>sqlParams)
         {

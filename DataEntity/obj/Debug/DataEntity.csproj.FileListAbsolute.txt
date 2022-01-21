@@ -1,9 +1,9 @@
-D:\henry\chinisoft\chatroom\DataEntity\obj\Debug\DataEntity.csproj.AssemblyReference.cache
-D:\henry\chinisoft\chatroom\DataEntity\obj\Debug\DataEntity.csproj.CoreCompileInputs.cache
 D:\henry\chinisoft\chatroom\DataEntity\bin\Debug\DataEntity.dll
 D:\henry\chinisoft\chatroom\DataEntity\bin\Debug\DataEntity.pdb
 D:\henry\chinisoft\chatroom\DataEntity\bin\Debug\Crossover.dll
 D:\henry\chinisoft\chatroom\DataEntity\bin\Debug\Crossover.pdb
+D:\henry\chinisoft\chatroom\DataEntity\obj\Debug\DataEntity.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\DataEntity\obj\Debug\DataEntity.csproj.CoreCompileInputs.cache
 D:\henry\chinisoft\chatroom\DataEntity\obj\Debug\DataEntity.csproj.CopyComplete
 D:\henry\chinisoft\chatroom\DataEntity\obj\Debug\DataEntity.dll
 D:\henry\chinisoft\chatroom\DataEntity\obj\Debug\DataEntity.pdb

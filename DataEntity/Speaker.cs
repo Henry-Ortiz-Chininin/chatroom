@@ -11,7 +11,7 @@ namespace DataEntity
     {
         public string UserId { get; set; }
         public string Name { get; set; }
-
+        public string CurrentRoomId { get; set; }
         public string Status { get; set; }
     }
 }

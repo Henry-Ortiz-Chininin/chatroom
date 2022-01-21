@@ -1,11 +1,11 @@
-D:\henry\chinisoft\chatroom\DataRepository\obj\Debug\DataRepository.csproj.AssemblyReference.cache
-D:\henry\chinisoft\chatroom\DataRepository\obj\Debug\DataRepository.csproj.CoreCompileInputs.cache
 D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\DataRepository.dll
 D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\DataRepository.pdb
-D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\DataEntity.dll
 D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\Crossover.dll
-D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\DataEntity.pdb
+D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\DataEntity.dll
 D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\Crossover.pdb
+D:\henry\chinisoft\chatroom\DataRepository\bin\Debug\DataEntity.pdb
+D:\henry\chinisoft\chatroom\DataRepository\obj\Debug\DataRepository.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\DataRepository\obj\Debug\DataRepository.csproj.CoreCompileInputs.cache
 D:\henry\chinisoft\chatroom\DataRepository\obj\Debug\DataRepository.csproj.CopyComplete
 D:\henry\chinisoft\chatroom\DataRepository\obj\Debug\DataRepository.dll
 D:\henry\chinisoft\chatroom\DataRepository\obj\Debug\DataRepository.pdb

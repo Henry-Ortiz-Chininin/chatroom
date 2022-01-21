@@ -33,8 +33,9 @@ namespace DataRepository.Repositories
 
             Room room = null;
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_Room_Get", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_Room_Get", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     room = new Room();
@@ -44,7 +45,9 @@ namespace DataRepository.Repositories
                     room.CreatorId = SQLProvider.GetGUID(reader, "CreatorId");
                     room.Status = SQLProvider.GetText(reader, "Status");
                 }
+                reader.Close();
             }
+
             return room;
         }
 
@@ -54,8 +57,9 @@ namespace DataRepository.Repositories
 
             List<Room> roomList = new List<Room>();
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_Room_List", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_Room_List", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     Room room = new Room();
@@ -67,7 +71,9 @@ namespace DataRepository.Repositories
 
                     roomList.Add(room);
                 }
+                reader.Close();
             }
+
             return roomList;
         }
 

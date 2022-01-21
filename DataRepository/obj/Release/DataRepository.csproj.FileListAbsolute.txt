@@ -1,0 +1,11 @@
+D:\henry\chinisoft\chatroom\DataRepository\bin\Release\DataRepository.dll
+D:\henry\chinisoft\chatroom\DataRepository\bin\Release\DataRepository.pdb
+D:\henry\chinisoft\chatroom\DataRepository\bin\Release\Crossover.dll
+D:\henry\chinisoft\chatroom\DataRepository\bin\Release\DataEntity.dll
+D:\henry\chinisoft\chatroom\DataRepository\bin\Release\Crossover.pdb
+D:\henry\chinisoft\chatroom\DataRepository\bin\Release\DataEntity.pdb
+D:\henry\chinisoft\chatroom\DataRepository\obj\Release\DataRepository.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\DataRepository\obj\Release\DataRepository.csproj.CoreCompileInputs.cache
+D:\henry\chinisoft\chatroom\DataRepository\obj\Release\DataRepository.csproj.CopyComplete
+D:\henry\chinisoft\chatroom\DataRepository\obj\Release\DataRepository.dll
+D:\henry\chinisoft\chatroom\DataRepository\obj\Release\DataRepository.pdb

@@ -32,8 +32,9 @@ namespace DataRepository.Repositories
             
             User user = null;
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_User_Authenticate", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_User_Authenticate", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     user = new User();
@@ -42,8 +43,10 @@ namespace DataRepository.Repositories
                     user.UserName = SQLProvider.GetText(reader,"UserName");
                     user.Password = SQLProvider.GetText(reader,"Password");
                 }
-
+                reader.Close();
             }
+            
+
             return user;
         }
 
@@ -73,10 +76,33 @@ namespace DataRepository.Repositories
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("UserName", username));
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_User_Validate", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_User_Validate", parameters);
                 result = reader.HasRows;
+                reader.Close();
             }
+
+            return result;
+        }
+
+        public static string GetUserByName(string username)
+        {
+            string result = string.Empty;
+
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("UserName", username));
+
+            using (SqlConnection connection = SQLProvider.GetConnection())
+            {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_User_Validate", parameters);
+                while (reader.HasRows && reader.Read())
+                {
+                    result = SQLProvider.GetGUID(reader, "Id");
+                }
+                reader.Close();
+            }
+
             return result;
         }
 
@@ -87,8 +113,9 @@ namespace DataRepository.Repositories
 
             User user = null;
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_User_Get", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_User_Get", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     user = new User();
@@ -97,8 +124,9 @@ namespace DataRepository.Repositories
                     user.UserName = SQLProvider.GetText(reader, "UserName");
                     user.Password = SQLProvider.GetText(reader, "Password");
                 }
-
+                reader.Close();
             }
+
             return user;
         }
 
@@ -120,8 +148,9 @@ namespace DataRepository.Repositories
 
             List<User> userList = new List<User>();
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_User_List", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_User_List", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     User user = new User();
@@ -132,8 +161,9 @@ namespace DataRepository.Repositories
 
                     userList.Add(user);
                 }
-
+                reader.Close();
             }
+
             return userList;
         }
     }

@@ -1,0 +1,9 @@
+D:\henry\chinisoft\chatroom\DataEntity\bin\Release\DataEntity.dll
+D:\henry\chinisoft\chatroom\DataEntity\bin\Release\DataEntity.pdb
+D:\henry\chinisoft\chatroom\DataEntity\bin\Release\Crossover.dll
+D:\henry\chinisoft\chatroom\DataEntity\bin\Release\Crossover.pdb
+D:\henry\chinisoft\chatroom\DataEntity\obj\Release\DataEntity.csproj.AssemblyReference.cache
+D:\henry\chinisoft\chatroom\DataEntity\obj\Release\DataEntity.csproj.CoreCompileInputs.cache
+D:\henry\chinisoft\chatroom\DataEntity\obj\Release\DataEntity.csproj.CopyComplete
+D:\henry\chinisoft\chatroom\DataEntity\obj\Release\DataEntity.dll
+D:\henry\chinisoft\chatroom\DataEntity\obj\Release\DataEntity.pdb

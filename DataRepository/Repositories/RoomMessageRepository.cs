@@ -41,13 +41,15 @@ namespace DataRepository.Repositories
                     message = new RoomMessage();
 
                     message.Id = SQLProvider.GetGUID(reader, "Id");
-                    message.RoomId = SQLProvider.GetText(reader, "RoomId");
-                    message.SpeakerId = SQLProvider.GetText(reader, "SpeakerId");
+                    message.RoomId = SQLProvider.GetGUID(reader, "RoomId");
+                    message.SpeakerId = SQLProvider.GetGUID(reader, "SpeakerId");
                     message.CreationTime = SQLProvider.GetDateTime(reader, "CreationTime");
                     message.Message = SQLProvider.GetText(reader, "Message");
-                    message.ReferenceId = SQLProvider.GetText(reader, "ReferenceId");
+                    message.ReferenceId = SQLProvider.GetGUID(reader, "ReferenceId");
                 }
+                reader.Close();
             }
+
             return message;
         }
 
@@ -58,22 +60,25 @@ namespace DataRepository.Repositories
 
             List<RoomMessage> messageList = new List<RoomMessage>();
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_RoomMessage_List", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_RoomMessage_List", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     RoomMessage message = new RoomMessage();
 
                     message.Id = SQLProvider.GetGUID(reader, "Id");
-                    message.RoomId = SQLProvider.GetText(reader, "RoomId");
-                    message.SpeakerId = SQLProvider.GetText(reader, "SpeakerId");
+                    message.RoomId = SQLProvider.GetGUID(reader, "RoomId");
+                    message.SpeakerId = SQLProvider.GetGUID(reader, "SpeakerId");
                     message.CreationTime = SQLProvider.GetDateTime(reader, "CreationTime");
                     message.Message = SQLProvider.GetText(reader, "Message");
-                    message.ReferenceId = SQLProvider.GetText(reader, "ReferenceId");
+                    message.ReferenceId = SQLProvider.GetGUID(reader, "ReferenceId");
 
                     messageList.Add(message);
                 }
+                reader.Close();
             }
+
             return messageList;
         }
 

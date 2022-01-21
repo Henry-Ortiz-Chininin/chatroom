@@ -8,7 +8,7 @@ using DataRepository.Interfaces;
 using DataRepository.Repositories;
 
 
-namespace DomainEntitySpeakUs.Aggregates
+namespace DomainSpeakUs.Aggregates
 {
     public class Room
     {
@@ -41,7 +41,9 @@ namespace DomainEntitySpeakUs.Aggregates
 
             foreach (RoomMate mate in iMate.GetMatesByRoom(this.RoomId))
             {
-                result.Add(new Speaker(mate.RoomMateId));
+                Speaker speaker = new Speaker(mate.RoomMateId);
+                speaker.SpeakerStatus = mate.Status;
+                result.Add(speaker);
             }
             return result;
         }

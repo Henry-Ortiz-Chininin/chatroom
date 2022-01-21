@@ -9,6 +9,7 @@ namespace Crossover.Status
     public class RoomStatus
     {
         public const string OPEN = "OPN";
+        public const string CURRENT = "CUR";
         public const string CLOSED = "LKD";
     }
 }

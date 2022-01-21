@@ -9,6 +9,7 @@ namespace Crossover.Status
     public class RoomMateStatus
     {
         public const string CONNECTED = "CON";
+        public const string HIDDEN = "HID";
         public const string DISCONNECTED = "DIS";
 
     }

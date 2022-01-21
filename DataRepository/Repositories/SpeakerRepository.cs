@@ -32,8 +32,9 @@ namespace DataRepository.Repositories
 
             Speaker speaker = null;
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_Speaker_Get", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_Speaker_Get", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     speaker = new Speaker();
@@ -41,8 +42,11 @@ namespace DataRepository.Repositories
                     speaker.UserId = SQLProvider.GetGUID(reader, "UserId");
                     speaker.Name = SQLProvider.GetText(reader, "Name");
                     speaker.Status = SQLProvider.GetText(reader, "Status");                    
+                    speaker.CurrentRoomId = SQLProvider.GetGUID(reader, "CurrentRoomId");                    
                 }
+                reader.Close();
             }
+
             return speaker;
         }
 
@@ -70,8 +74,9 @@ namespace DataRepository.Repositories
 
             List<Speaker> speakerList = new List<Speaker>();
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_Speaker_List", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_Speaker_List", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     Speaker speaker = new Speaker();
@@ -79,11 +84,13 @@ namespace DataRepository.Repositories
                     speaker.UserId = SQLProvider.GetGUID(reader, "UserId");
                     speaker.Name = SQLProvider.GetText(reader, "Name");
                     speaker.Status= SQLProvider.GetText(reader, "Status");
+                    speaker.CurrentRoomId= SQLProvider.GetGUID(reader, "CurrentRoomId");
 
                     speakerList.Add(speaker);
                 }
-
+                reader.Close();
             }
+
             return speakerList;
         }
 
@@ -93,6 +100,7 @@ namespace DataRepository.Repositories
             parameters.Add(new SqlParameter("UserId", speaker.UserId));
             parameters.Add(new SqlParameter("Name", speaker.Name));
             parameters.Add(new SqlParameter("Status", speaker.Status));
+            parameters.Add(new SqlParameter("CurrentRoomId", speaker.CurrentRoomId));
 
             SQLProvider.ExecuteProc("usp_Speaker_Update", parameters);
 

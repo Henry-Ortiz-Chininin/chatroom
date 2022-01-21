@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataEntity
 {
-    public class RoomMessage
+    public class RoomMessage:Base
     {
         public string Id { get; set; }
         public string RoomId { get; set; }

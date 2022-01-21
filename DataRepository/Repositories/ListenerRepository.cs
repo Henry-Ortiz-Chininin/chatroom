@@ -30,8 +30,9 @@ namespace DataRepository.Repositories
 
             List<Listener> listeners = new List<Listener>();
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_Listener_List", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_Listener_List", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     Listener listener = new Listener();
@@ -41,7 +42,9 @@ namespace DataRepository.Repositories
 
                     listeners.Add(listener);
                 }
+                reader.Close();
             }
+
             return listeners;
         }
 

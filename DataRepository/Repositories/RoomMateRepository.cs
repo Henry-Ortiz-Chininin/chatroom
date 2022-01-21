@@ -31,42 +31,42 @@ namespace DataRepository.Repositories
 
             List<RoomMate> roomList = new List<RoomMate>();
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_RoomMateByRoom_List", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_RoomMateByRoom_List", parameters);
                 while (reader.HasRows && reader.Read())
                 {
                     RoomMate mate = new RoomMate();
 
-                    mate.RoomId = SQLProvider.GetGUID(reader, "Id");
-                    mate.RoomMateId = SQLProvider.GetText(reader, "RoomId");
-                    mate.Status = SQLProvider.GetText(reader, "SpeakerId");
+                    mate.RoomId = SQLProvider.GetGUID(reader, "RoomId");
+                    mate.RoomMateId = SQLProvider.GetGUID(reader, "RoomMateId");
+                    mate.Status = SQLProvider.GetText(reader, "Status");
 
                     roomList.Add(mate);
                 }
+                reader.Close();
             }
+
             return roomList;
         }
 
-        public IEnumerable<RoomMate> GetRoomsByMate(string mateId)
+        public IEnumerable<string> GetRoomsByMate(string mateId)
         {
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("RoomMateId", mateId));
 
-            List<RoomMate> roomList = new List<RoomMate>();
+            List<string> roomList = new List<string>();
 
-            using (SqlDataReader reader = SQLProvider.ReaderFromProc("usp_RoomMateByMate_List", parameters))
+            using (SqlConnection connection = SQLProvider.GetConnection())
             {
+                SqlDataReader reader = SQLProvider.ReaderFromProc(connection, "usp_RoomMateByMate_List", parameters);
                 while (reader.HasRows && reader.Read())
                 {
-                    RoomMate mate = new RoomMate();
-
-                    mate.RoomId = SQLProvider.GetGUID(reader, "Id");
-                    mate.RoomMateId = SQLProvider.GetText(reader, "RoomId");
-                    mate.Status = SQLProvider.GetText(reader, "SpeakerId");
-
-                    roomList.Add(mate);
+                    roomList.Add(SQLProvider.GetGUID(reader, "RoomId"));
                 }
+                reader.Close();
             }
+
             return roomList;
         }
 

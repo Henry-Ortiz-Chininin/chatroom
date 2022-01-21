@@ -7,7 +7,7 @@ using DataEntity;
 using DataRepository.Interfaces;
 using DataRepository.Repositories;
 
-namespace DomainEntitySpeakUs.Aggregates
+namespace DomainSpeakUs.Aggregates
 {
     public class RoomMessage
     {

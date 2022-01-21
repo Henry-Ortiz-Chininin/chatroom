@@ -7,7 +7,7 @@ using DataEntity;
 using DataRepository.Interfaces;
 using DataRepository.Repositories;
 
-namespace DomainEntitySpeakUs.Aggregates
+namespace DomainSpeakUs.Aggregates
 {
     public class Speaker
     {
@@ -19,6 +19,7 @@ namespace DomainEntitySpeakUs.Aggregates
         public string Password { get; set; }
         public string SpeakerName { get; set; }
         public string SpeakerStatus { get; set; }
+        public string CurrentRoomId { get; set; }
 
         public Speaker()
         {
@@ -32,6 +33,7 @@ namespace DomainEntitySpeakUs.Aggregates
             this.SpeakerId = SpeakerId;
             this.SpeakerName = speaker.Name;
             this.SpeakerStatus = speaker.Status;
+            this.CurrentRoomId = speaker.CurrentRoomId;
             this.Username = user.UserName;
             this.Password = user.Password;
         }
@@ -51,9 +53,9 @@ namespace DomainEntitySpeakUs.Aggregates
         {
             List<Room> result = new List<Room>();
             iRoomMateRepository iRoom = new RoomMateRepository();
-            foreach (DataEntity.RoomMate room in iRoom.GetRoomsByMate(this.SpeakerId))
+            foreach (string RoomId in iRoom.GetRoomsByMate(this.SpeakerId))
             {
-                result.Add(new Room(room.RoomId));
+                result.Add(new Room(RoomId));
             }
 
             return result;
