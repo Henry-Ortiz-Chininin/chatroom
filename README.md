@@ -10,3 +10,5 @@
 # * Open the folder SpeakUsApp
 # * Modify the line below into the web.config file, the Database MUST be dbSpeakUp, 
 <add name="Connection" providerName="System.Data.ProviderName" connectionString="server=LAPTOP-QUBQTDFE;Integrated security=yes; Database=dbSpeakUp;" />
+
+# You can try the Web deployment into "WebDeploy" folder.

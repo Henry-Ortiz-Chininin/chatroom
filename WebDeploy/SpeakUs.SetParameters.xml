@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/SpeakUs_deploy" />
+  <setParameter name="Connection-Web.config Connection String" value="server=LAPTOP-QUBQTDFE;Integrated security=yes; Database=dbSpeakUp;" />
+</parameters>
